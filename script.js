@@ -514,10 +514,10 @@
   
 })();
   /* ───────────────────────────────────────────────────────────────────────────
-     UNIVERSAL IMAGE LIGHTBOX (Zoom semua gambar di halaman)
+     UNIVERSAL IMAGE LIGHTBOX (tanpa tombol close)
      ─────────────────────────────────────────────────────────────────────────── */
   function initUniversalImageZoom() {
-    // Buat elemen lightbox jika belum ada
+    // Buat elemen lightbox hanya sekali
     let lightbox = document.querySelector('.lightbox-universal');
     if (!lightbox) {
       lightbox = document.createElement('div');
@@ -525,19 +525,14 @@
       lightbox.innerHTML = `
         <div class="lightbox-content">
           <img src="" alt="">
-          <button class="lightbox-close" aria-label="Tutup gambar">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M18 6L6 18M6 6l12 12"/>
-            </svg>
-          </button>
         </div>
       `;
       document.body.appendChild(lightbox);
     }
 
     const lightboxImg = lightbox.querySelector('img');
-    const closeBtn = lightbox.querySelector('.lightbox-close');
 
+    // Fungsi buka & tutup lightbox
     function openLightbox(src, alt) {
       lightboxImg.src = src;
       lightboxImg.alt = alt || '';
@@ -551,32 +546,37 @@
       lightboxImg.src = '';
     }
 
-    // Tutup dengan klik luar atau ESC
-    closeBtn.addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', e => {
-      if (e.target === lightbox) closeLightbox();
-    });
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
+    // Tutup dengan klik di luar gambar atau tekan ESC
+    lightbox.addEventListener('click', (e) => {
+      // Jika klik bukan pada gambar → tutup
+      if (e.target === lightbox || e.target.closest('.lightbox-content') === null) {
+        closeLightbox();
+      }
     });
 
-    // Gunakan event delegation supaya tetap jalan meskipun gambar muncul belakangan
-    document.body.addEventListener('click', e => {
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        closeLightbox();
+      }
+    });
+
+    // Gunakan event delegation agar semua gambar di halaman aktif
+    document.body.addEventListener('click', (e) => {
       const img = e.target.closest('img');
       if (!img) return;
 
-      // Hindari klik pada gambar di dalam elemen yang sudah punya lightbox gallery
-      if (img.closest('.gallery-item')) return;
-
-      // Abaikan icon, logo, atau gambar kecil
+      // Abaikan gambar kecil seperti logo/ikon
       const rect = img.getBoundingClientRect();
       if (rect.width < 100 && rect.height < 100) return;
+
+      // Abaikan gambar di dalam galeri khusus
+      if (img.closest('.gallery-item')) return;
 
       openLightbox(img.src, img.alt);
     });
   }
 
-  // Panggil di init()
+  // Pastikan dipanggil di dalam init()
   function init() {
     initMobileNav();
     initSlider();
@@ -584,7 +584,7 @@
     initLightbox();
     initAccordion();
     initLoginLink();
-    initUniversalImageZoom(); // ✅ Tambahkan di sini
+    initUniversalImageZoom(); // ✅ tambahkan baris ini
 
     console.log('✅ Website Minnatul Huda initialized successfully');
   }
