@@ -3,59 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Website Pondok</title>
+  <title>Memuat Halaman...</title>
+
+  <!-- Hubungkan ke CSS eksternal -->
   <link rel="stylesheet" href="bagian css.css">
+  
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+    }
+    #konten {
+      padding: 0;
+    }
+    #loading {
+      text-align: center;
+      padding: 2rem;
+      color: #555;
+    }
+  </style>
 </head>
 
 <body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#" onclick="muatHalaman('Halaman Beranda.html')">Beranda</a></li>
-        <li><a href="#" onclick="muatHalaman('tentang.html')">Tentang</a></li>
-        <li><a href="#" onclick="muatHalaman('daftar-biaya.html')">Daftar Biaya</a></li>
-        <li><a href="#" onclick="muatHalaman('daftar-ketentuan.html')">Ketentuan</a></li>
-        <li><a href="#" onclick="muatHalaman('unit-yayasan.html')">Unit Yayasan</a></li>
-        <li><a href="#" onclick="muatHalaman('unit-sd-it.html')">Unit SD IT</a></li>
-        <li><a href="#" onclick="muatHalaman('unit-smp-bp.html')">Unit SMP BP</a></li>
-        <li><a href="#" onclick="muatHalaman('unit-smk.html')">Unit SMK</a></li>
-        <li><a href="#" onclick="muatHalaman('prestasi-santri.html')">Prestasi Santri</a></li>
-        <li><a href="#" onclick="muatHalaman('prestasi-yayasan.html')">Prestasi Yayasan</a></li>
-        <li><a href="#" onclick="muatHalaman('galeri-event.html')">Galeri Event</a></li>
-        <li><a href="#" onclick="muatHalaman('galeri-fasilitas.html')">Galeri Fasilitas</a></li>
-        <li><a href="#" onclick="muatHalaman('galeri-lainnya.html')">Galeri Lainnya</a></li>
-      </ul>
-    </nav>
-  </header>
+  <div id="loading">Sedang memuat halaman...</div>
+  <main id="konten"></main>
 
-  <main id="konten">
-    <p>Sedang memuat halaman...</p>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 Yayasan Pendidikan Halominnatul Huda</p>
-  </footer>
-
-  <!-- JS eksternal -->
+  <!-- Hubungkan ke file script eksternal -->
   <script src="bagian script.js"></script>
 
-  <!-- Script penghubung halaman & pembaca JSON -->
   <script>
+    // URL JSON dari GitHub
     const dataUrl = "https://raw.githubusercontent.com/halominnatulhuda-cyber/website/2bfa611ce001faf8a0aadb7076c8a595e11e9b67/data%20(1).json";
+    const halamanUtama = "Halaman Beranda.html";
 
-    // Fungsi memuat halaman HTML
+    // Fungsi memuat halaman HTML utama
     async function muatHalaman(namaFile) {
       try {
         const response = await fetch(namaFile);
         if (!response.ok) throw new Error("Gagal memuat " + namaFile);
         const html = await response.text();
         document.getElementById("konten").innerHTML = html;
+        document.getElementById("loading").style.display = "none";
       } catch (error) {
-        document.getElementById("konten").innerHTML = `<p style="color:red">${error.message}</p>`;
+        document.getElementById("konten").innerHTML = `<p style="color:red;text-align:center">${error.message}</p>`;
       }
     }
 
-    // Fungsi memuat dan membaca JSON dari GitHub
+    // Fungsi memuat dan membaca JSON
     async function muatDataJSON() {
       try {
         const response = await fetch(dataUrl);
@@ -64,17 +59,17 @@
 
         console.log("Data JSON berhasil dimuat:", jsonData);
 
-        // Jika ingin menampilkan JSON di halaman utama:
+        // Kalau ingin menampilkan JSON di halaman (opsional):
         // document.getElementById("konten").innerHTML += "<pre>" + JSON.stringify(jsonData, null, 2) + "</pre>";
 
       } catch (error) {
-        console.error("Terjadi kesalahan saat mengambil JSON:", error);
+        console.error("Kesalahan saat membaca JSON:", error);
       }
     }
 
-    // Jalankan otomatis saat halaman pertama kali dibuka
+    // Jalankan saat halaman dimuat pertama kali
     window.onload = async function() {
-      await muatHalaman("Halaman Beranda.html");
+      await muatHalaman(halamanUtama);
       await muatDataJSON();
     };
   </script>
