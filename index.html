@@ -1,77 +1,57 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Memuat Halaman...</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website MinnaTul Huda</title>
 
-  <!-- Hubungkan ke CSS eksternal -->
-  <link rel="stylesheet" href="bagian css.css">
-  
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #fff;
-    }
-    #konten {
-      padding: 0;
-    }
-    #loading {
-      text-align: center;
-      padding: 2rem;
-      color: #555;
-    }
-  </style>
+    <!-- Hubungkan CSS dari GitHub -->
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/halominnatulhuda-cyber/website/refs/heads/main/styles.css">
 </head>
-
 <body>
-  <div id="loading">Sedang memuat halaman...</div>
-  <main id="konten"></main>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="Halaman%20Beranda.html">Beranda</a></li>
+                <li><a href="tentang.html">Tentang</a></li>
+                <li><a href="daftar-biaya.html">Daftar Biaya</a></li>
+                <li><a href="daftar-ketentuan.html">Ketentuan</a></li>
+                <li><a href="unit-sd-it.html">Unit SD IT</a></li>
+                <li><a href="unit-smp-bp.html">Unit SMP BP</a></li>
+                <li><a href="unit-smk.html">Unit SMK</a></li>
+                <li><a href="unit-yayasan.html">Unit Yayasan</a></li>
+                <li><a href="prestasi-santri.html">Prestasi Santri</a></li>
+                <li><a href="prestasi-yayasan.html">Prestasi Yayasan</a></li>
+                <li><a href="galeri-event.html">Galeri Event</a></li>
+                <li><a href="galeri-fasilitas.html">Galeri Fasilitas</a></li>
+                <li><a href="galeri-lainnya.html">Galeri Lainnya</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <!-- Hubungkan ke file script eksternal -->
-  <script src="bagian script.js"></script>
+    <main id="konten"></main>
 
-  <script>
-    // URL JSON dari GitHub
-    const dataUrl = "https://raw.githubusercontent.com/halominnatulhuda-cyber/website/2bfa611ce001faf8a0aadb7076c8a595e11e9b67/data%20(1).json";
-    const halamanUtama = "Halaman Beranda.html";
+    <!-- Hubungkan Script JS dari GitHub -->
+    <script src="https://raw.githubusercontent.com/halominnatulhuda-cyber/website/refs/heads/main/script.js"></script>
 
-    // Fungsi memuat halaman HTML utama
-    async function muatHalaman(namaFile) {
-      try {
-        const response = await fetch(namaFile);
-        if (!response.ok) throw new Error("Gagal memuat " + namaFile);
-        const html = await response.text();
-        document.getElementById("konten").innerHTML = html;
-        document.getElementById("loading").style.display = "none";
-      } catch (error) {
-        document.getElementById("konten").innerHTML = `<p style="color:red;text-align:center">${error.message}</p>`;
-      }
-    }
+    <!-- Ambil data JSON dari GitHub -->
+    <script>
+        async function muatData() {
+            const url = "https://raw.githubusercontent.com/halominnatulhuda-cyber/website/refs/heads/main/data.json";
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                console.log("Data JSON berhasil dimuat:", data);
 
-    // Fungsi memuat dan membaca JSON
-    async function muatDataJSON() {
-      try {
-        const response = await fetch(dataUrl);
-        if (!response.ok) throw new Error("Gagal mengambil data JSON");
-        const jsonData = await response.json();
+                // contoh tampilan jika kamu ingin menampilkan salah satu data ke halaman
+                const konten = document.getElementById("konten");
+                konten.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                console.error("Gagal memuat data JSON:", error);
+            }
+        }
 
-        console.log("Data JSON berhasil dimuat:", jsonData);
-
-        // Kalau ingin menampilkan JSON di halaman (opsional):
-        // document.getElementById("konten").innerHTML += "<pre>" + JSON.stringify(jsonData, null, 2) + "</pre>";
-
-      } catch (error) {
-        console.error("Kesalahan saat membaca JSON:", error);
-      }
-    }
-
-    // Jalankan saat halaman dimuat pertama kali
-    window.onload = async function() {
-      await muatHalaman(halamanUtama);
-      await muatDataJSON();
-    };
-  </script>
+        muatData();
+    </script>
 </body>
 </html>
