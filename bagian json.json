@@ -1,0 +1,208 @@
+{
+  "settings": {
+    "loginUrl": "https://login.pesantrenminnatulhuda.com",
+    "siteName": "Pesantren & Sekolah Minnatul Huda",
+    "siteDescription": "Pendidikan Islam Berkualitas dengan Akhlak Mulia",
+    "contactPhone": "(021) 12345678",
+    "contactWhatsApp": "0812-3456-7890",
+    "contactEmail": "info@minnatulhuda.sch.id",
+    "address": "Jl. Pendidikan No. 123, Kota, Provinsi 12345"
+  },
+  
+  "sliderImages": [
+    {
+      "src": "https://placehold.co/1200x500/0B6E4F/FFFFFF?text=Pesantren+Minnatul+Huda",
+      "alt": "Banner 1 - Pesantren Minnatul Huda",
+      "title": "Selamat Datang di Minnatul Huda",
+      "description": "Pendidikan Islami Berkualitas dengan Akhlak Mulia"
+    },
+    {
+      "src": "https://placehold.co/1200x500/14A76C/FFFFFF?text=Pendidikan+Berkualitas",
+      "alt": "Banner 2 - Pendidikan Berkualitas",
+      "title": "Pendidikan Berkualitas",
+      "description": "Memadukan Kurikulum Pesantren dan Formal"
+    },
+    {
+      "src": "https://placehold.co/1200x500/053826/FFFFFF?text=Fasilitas+Modern",
+      "alt": "Banner 3 - Fasilitas Modern",
+      "title": "Fasilitas Modern",
+      "description": "Lingkungan Belajar yang Nyaman dan Kondusif"
+    }
+  ],
+  
+  "tim": [
+    {
+      "id": 1,
+      "name": "KH. Muhammad Al-Amin",
+      "position": "Pengasuh Pesantren",
+      "photo": "https://placehold.co/200x200/0B6E4F/FFFFFF?text=Kiyai",
+      "bio": "Pendiri dan pengasuh Pesantren Minnatul Huda"
+    },
+    {
+      "id": 2,
+      "name": "Drs. Ahmad Zaini, M.Pd",
+      "position": "Kepala Sekolah",
+      "photo": "https://placehold.co/200x200/14A76C/FFFFFF?text=Kepala",
+      "bio": "Kepala Sekolah dengan pengalaman 20 tahun di dunia pendidikan"
+    },
+    {
+      "id": 3,
+      "name": "Ustadzah Siti Aisyah, S.Pd.I",
+      "position": "Wakil Kepala Kurikulum",
+      "photo": "https://placehold.co/200x200/053826/FFFFFF?text=Waka",
+      "bio": "Koordinator kurikulum dan pengembangan pembelajaran"
+    },
+    {
+      "id": 4,
+      "name": "Ustadz Fathurrahman, Lc",
+      "position": "Koordinator Tahfidz",
+      "photo": "https://placehold.co/200x200/0B6E4F/FFFFFF?text=Ustadz",
+      "bio": "Pembimbing program tahfidz dengan metode talaqqi"
+    }
+  ],
+  
+  "prestasi": [
+    {
+      "id": 1,
+      "title": "Juara 1 Lomba Tahfidz Tingkat Nasional",
+      "student": "Ahmad Fauzi",
+      "category": "Tahfidz",
+      "level": "Nasional",
+      "year": "2024",
+      "description": "Meraih juara pertama dalam Lomba Tahfidz Al-Qur'an 30 Juz tingkat nasional yang diselenggarakan di Jakarta dengan 150 peserta dari seluruh Indonesia."
+    },
+    {
+      "id": 2,
+      "title": "Juara 2 Olimpiade Matematika Tingkat Provinsi",
+      "student": "Siti Nurhaliza",
+      "category": "Akademik",
+      "level": "Provinsi",
+      "year": "2024",
+      "description": "Berhasil meraih medali perak pada Olimpiade Sains Nasional (OSN) bidang Matematika tingkat provinsi."
+    },
+    {
+      "id": 3,
+      "title": "Juara 1 Lomba Pidato Bahasa Arab",
+      "student": "Muhammad Rizki",
+      "category": "Bahasa",
+      "level": "Nasional",
+      "year": "2023",
+      "description": "Menjadi juara pertama dalam kompetisi pidato bahasa Arab tingkat nasional yang digelar oleh Kementerian Agama RI."
+    }
+  ],
+  
+  "galeri": {
+    "fasilitas": [
+      {
+        "id": 1,
+        "title": "Masjid Utama",
+        "image": "https://placehold.co/400x400/0B6E4F/FFFFFF?text=Masjid",
+        "description": "Masjid yang luas dan nyaman untuk beribadah"
+      },
+      {
+        "id": 2,
+        "title": "Asrama Putra",
+        "image": "https://placehold.co/400x400/14A76C/FFFFFF?text=Asrama+Putra",
+        "description": "Asrama putra dengan fasilitas lengkap"
+      },
+      {
+        "id": 3,
+        "title": "Asrama Putri",
+        "image": "https://placehold.co/400x400/053826/FFFFFF?text=Asrama+Putri",
+        "description": "Asrama putri yang aman dan nyaman"
+      },
+      {
+        "id": 4,
+        "title": "Ruang Kelas",
+        "image": "https://placehold.co/400x400/0B6E4F/FFFFFF?text=Ruang+Kelas",
+        "description": "Ruang kelas ber-AC yang kondusif"
+      },
+      {
+        "id": 5,
+        "title": "Perpustakaan",
+        "image": "https://placehold.co/400x400/14A76C/FFFFFF?text=Perpustakaan",
+        "description": "Perpustakaan dengan koleksi buku lengkap"
+      },
+      {
+        "id": 6,
+        "title": "Laboratorium Komputer",
+        "image": "https://placehold.co/400x400/053826/FFFFFF?text=Lab+Komputer",
+        "description": "Lab komputer dengan perangkat modern"
+      }
+    ],
+    "event": [
+      {
+        "id": 1,
+        "title": "Peringatan Maulid Nabi",
+        "image": "https://placehold.co/400x400/0B6E4F/FFFFFF?text=Maulid+Nabi",
+        "date": "2024-09-15"
+      },
+      {
+        "id": 2,
+        "title": "Wisuda Tahfidz",
+        "image": "https://placehold.co/400x400/14A76C/FFFFFF?text=Wisuda",
+        "date": "2024-06-20"
+      }
+    ]
+  },
+  
+  "news": [
+    {
+      "id": 1,
+      "title": "Peringatan Maulid Nabi Muhammad SAW",
+      "excerpt": "Minnatul Huda menggelar peringatan Maulid Nabi dengan berbagai kegiatan...",
+      "image": "https://placehold.co/400x200/0B6E4F/FFFFFF?text=Artikel+1",
+      "date": "2024-09-15",
+      "category": "Event"
+    },
+    {
+      "id": 2,
+      "title": "Santri Meraih Juara Tahfidz Tingkat Provinsi",
+      "excerpt": "Membanggakan! Santri Minnatul Huda berhasil meraih juara...",
+      "image": "https://placehold.co/400x200/14A76C/FFFFFF?text=Artikel+2",
+      "date": "2024-08-10",
+      "category": "Prestasi"
+    },
+    {
+      "id": 3,
+      "title": "Penerimaan Santri Baru Tahun Ajaran 2025/2026",
+      "excerpt": "Pendaftaran santri baru telah dibuka untuk tahun ajaran mendatang...",
+      "image": "https://placehold.co/400x200/053826/FFFFFF?text=Artikel+3",
+      "date": "2025-01-05",
+      "category": "Pendaftaran"
+    }
+  ],
+  
+  "faq": [
+    {
+      "id": 1,
+      "question": "Apa saja jenjang pendidikan yang tersedia?",
+      "answer": "Minnatul Huda menyediakan jenjang pendidikan SD IT (Sekolah Dasar Islam Terpadu), SMP BP (Sekolah Menengah Pertama Berbasis Pesantren), dan SMK (Sekolah Menengah Kejuruan), serta program Ponpes (Pondok Pesantren)."
+    },
+    {
+      "id": 2,
+      "question": "Bagaimana sistem pendidikan di Minnatul Huda?",
+      "answer": "Kami menerapkan sistem pendidikan terpadu yang memadukan kurikulum pesantren (pendidikan agama Islam, tahfidz, dan akhlak) dengan kurikulum nasional (pendidikan formal). Santri mendapatkan pendidikan yang seimbang antara ilmu dunia dan akhirat."
+    },
+    {
+      "id": 3,
+      "question": "Apa saja fasilitas yang tersedia?",
+      "answer": "Fasilitas yang tersedia meliputi: asrama putra dan putri, masjid, ruang kelas ber-AC, perpustakaan, laboratorium komputer dan sains, lapangan olahraga, kantin, dan area parkir yang luas."
+    },
+    {
+      "id": 4,
+      "question": "Kapan pendaftaran santri baru dibuka?",
+      "answer": "Pendaftaran santri baru biasanya dibuka mulai bulan Januari hingga Juni setiap tahunnya."
+    },
+    {
+      "id": 5,
+      "question": "Berapa biaya pendidikan di Minnatul Huda?",
+      "answer": "Biaya pendidikan bervariasi tergantung jenjang. Untuk informasi lengkap mengenai biaya, silakan kunjungi halaman Informasi Biaya."
+    },
+    {
+      "id": 6,
+      "question": "Apakah ada program beasiswa?",
+      "answer": "Ya, kami menyediakan program beasiswa bagi santri berprestasi dan kurang mampu. Informasi selengkapnya dapat ditanyakan saat proses pendaftaran atau melalui kontak kami."
+    }
+  ]
+}
