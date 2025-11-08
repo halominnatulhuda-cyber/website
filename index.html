@@ -5,31 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Website Saya</title>
 
-  <!-- CSS dari GitHub -->
-  <link rel="stylesheet" href="https://raw.githubusercontent.com/halominnatulhuda-cyber/website/main/bagian%20css.css">
+  <!-- CSS lokal di repo -->
+  <link rel="stylesheet" href="bagian css.css">
 </head>
 <body>
-  <h1>Selamat Datang di Website Saya</h1>
+  <h1>Halo, selamat datang!</h1>
 
   <div id="konten"></div>
 
-  <!-- JS utama -->
-  <script src="https://raw.githubusercontent.com/halominnatulhuda-cyber/website/main/script.js"></script>
+  <!-- JS lokal -->
+  <script src="bagian script.js"></script>
 
-  <!-- Script untuk memuat halaman beranda -->
+  <!-- Muat halaman beranda -->
   <script>
-    // Ganti URL ini dengan link raw file halaman beranda kamu
-    const urlHalaman = "https://raw.githubusercontent.com/halominnatulhuda-cyber/website/main/Halaman%20Beranda.html";
-
-    fetch(urlHalaman)
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById("konten").innerHTML = data;
-      })
-      .catch(error => {
-        console.error("Gagal memuat halaman:", error);
-        document.getElementById("konten").innerHTML = "<p>Gagal memuat halaman beranda.</p>";
-      });
+    fetch("Halaman Beranda.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("konten").innerHTML = html)
+      .catch(err => console.error("Gagal memuat halaman:", err));
   </script>
 </body>
 </html>
