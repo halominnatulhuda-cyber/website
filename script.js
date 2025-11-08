@@ -514,19 +514,14 @@
   
 })();
   /* ───────────────────────────────────────────────────────────────────────────
-     UNIVERSAL IMAGE LIGHTBOX (untuk semua <img> di halaman)
+     UNIVERSAL IMAGE LIGHTBOX (Zoom semua gambar di halaman)
      ─────────────────────────────────────────────────────────────────────────── */
-
   function initUniversalImageZoom() {
-    // Ambil semua gambar kecuali yang sudah di dalam .gallery-item
-    const images = document.querySelectorAll('img:not(.gallery-item img)');
-    if (images.length === 0) return;
-
-    // Reuse elemen lightbox kalau sudah ada, kalau belum buat baru
-    let lightbox = document.querySelector('.lightbox');
+    // Buat elemen lightbox jika belum ada
+    let lightbox = document.querySelector('.lightbox-universal');
     if (!lightbox) {
       lightbox = document.createElement('div');
-      lightbox.className = 'lightbox';
+      lightbox.className = 'lightbox lightbox-universal';
       lightbox.innerHTML = `
         <div class="lightbox-content">
           <img src="" alt="">
@@ -556,11 +551,7 @@
       lightboxImg.src = '';
     }
 
-    images.forEach(img => {
-      img.style.cursor = 'zoom-in';
-      img.addEventListener('click', () => openLightbox(img.src, img.alt));
-    });
-
+    // Tutup dengan klik luar atau ESC
     closeBtn.addEventListener('click', closeLightbox);
     lightbox.addEventListener('click', e => {
       if (e.target === lightbox) closeLightbox();
@@ -568,9 +559,24 @@
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
     });
+
+    // Gunakan event delegation supaya tetap jalan meskipun gambar muncul belakangan
+    document.body.addEventListener('click', e => {
+      const img = e.target.closest('img');
+      if (!img) return;
+
+      // Hindari klik pada gambar di dalam elemen yang sudah punya lightbox gallery
+      if (img.closest('.gallery-item')) return;
+
+      // Abaikan icon, logo, atau gambar kecil
+      const rect = img.getBoundingClientRect();
+      if (rect.width < 100 && rect.height < 100) return;
+
+      openLightbox(img.src, img.alt);
+    });
   }
 
-  // Tambahkan pemanggilan fungsi ini di dalam init()
+  // Panggil di init()
   function init() {
     initMobileNav();
     initSlider();
@@ -578,7 +584,7 @@
     initLightbox();
     initAccordion();
     initLoginLink();
-    initUniversalImageZoom(); // ✅ Tambahkan baris ini
+    initUniversalImageZoom(); // ✅ Tambahkan di sini
 
     console.log('✅ Website Minnatul Huda initialized successfully');
   }
