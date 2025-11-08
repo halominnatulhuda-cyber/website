@@ -513,3 +513,68 @@
   }
   
 })();
+  /* ───────────────────────────────────────────────────────────────────────────
+     UNIVERSAL IMAGE LIGHTBOX (untuk semua <img> yang bukan bagian dari gallery)
+     ─────────────────────────────────────────────────────────────────────────── */
+
+  function initUniversalImageZoom() {
+    const images = document.querySelectorAll('img:not(.gallery-item img)');
+    if (images.length === 0) return;
+
+    // Buat elemen lightbox
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox';
+    lightbox.innerHTML = `
+      <div class="lightbox-content">
+        <img src="" alt="">
+        <button class="lightbox-close" aria-label="Close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+    `;
+    document.body.appendChild(lightbox);
+
+    const lightboxImg = lightbox.querySelector('img');
+    const closeBtn = lightbox.querySelector('.lightbox-close');
+
+    function openLightbox(src, alt) {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt || '';
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+      lightboxImg.src = '';
+    }
+
+    images.forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => openLightbox(img.src, img.alt));
+    });
+
+    closeBtn.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
+    });
+  }
+
+  // panggil fungsi di init():
+  function init() {
+    initMobileNav();
+    initSlider();
+    initSmoothScroll();
+    initLightbox();
+    initAccordion();
+    initLoginLink();
+    initUniversalImageZoom(); // <── tambahkan baris ini
+
+    console.log('✅ Website Minnatul Huda initialized successfully');
+  }
