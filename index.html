@@ -1,57 +1,73 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website MinnaTul Huda</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memuat Website | MinnaTul Huda</title>
 
-    <!-- Hubungkan CSS dari GitHub -->
-    <link rel="stylesheet" href="https://raw.githubusercontent.com/halominnatulhuda-cyber/website/refs/heads/main/styles.css">
+  <!-- Hubungkan CSS utama -->
+  <link rel="stylesheet" href="https://raw.githubusercontent.com/halominnatulhuda-cyber/website/refs/heads/main/styles.css">
+
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+    .spinner {
+      border: 4px solid #ddd;
+      border-top: 4px solid #007bff;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin-bottom: 15px;
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    p {
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="Halaman%20Beranda.html">Beranda</a></li>
-                <li><a href="tentang.html">Tentang</a></li>
-                <li><a href="daftar-biaya.html">Daftar Biaya</a></li>
-                <li><a href="daftar-ketentuan.html">Ketentuan</a></li>
-                <li><a href="unit-sd-it.html">Unit SD IT</a></li>
-                <li><a href="unit-smp-bp.html">Unit SMP BP</a></li>
-                <li><a href="unit-smk.html">Unit SMK</a></li>
-                <li><a href="unit-yayasan.html">Unit Yayasan</a></li>
-                <li><a href="prestasi-santri.html">Prestasi Santri</a></li>
-                <li><a href="prestasi-yayasan.html">Prestasi Yayasan</a></li>
-                <li><a href="galeri-event.html">Galeri Event</a></li>
-                <li><a href="galeri-fasilitas.html">Galeri Fasilitas</a></li>
-                <li><a href="galeri-lainnya.html">Galeri Lainnya</a></li>
-            </ul>
-        </nav>
-    </header>
+  <div class="spinner"></div>
+  <p>Memuat halaman Beranda...</p>
 
-    <main id="konten"></main>
+  <!-- Hubungkan JavaScript -->
+  <script src="https://raw.githubusercontent.com/halominnatulhuda-cyber/website/refs/heads/main/script.js"></script>
 
-    <!-- Hubungkan Script JS dari GitHub -->
-    <script src="https://raw.githubusercontent.com/halominnatulhuda-cyber/website/refs/heads/main/script.js"></script>
+  <!-- Sinkronisasi data JSON lalu redirect -->
+  <script>
+    async function mulaiWebsite() {
+      const dataURL = "https://raw.githubusercontent.com/halominnatulhuda-cyber/website/refs/heads/main/data.json";
+      try {
+        const response = await fetch(dataURL);
+        if (!response.ok) throw new Error("Gagal memuat data");
+        const data = await response.json();
+        console.log("✅ Data JSON dimuat:", data);
 
-    <!-- Ambil data JSON dari GitHub -->
-    <script>
-        async function muatData() {
-            const url = "https://raw.githubusercontent.com/halominnatulhuda-cyber/website/refs/heads/main/data.json";
-            try {
-                const response = await fetch(url);
-                const data = await response.json();
-                console.log("Data JSON berhasil dimuat:", data);
+        // Arahkan ke halaman Beranda.html setelah data terbaca
+        setTimeout(() => {
+          // Gunakan nama file lokal di repositori (bukan URL raw)
+          window.location.href = "Beranda.html";
+        }, 1500);
+      } catch (error) {
+        console.error("❌ Gagal sinkronisasi:", error);
+        document.body.innerHTML = "<h2>Gagal memuat website</h2><p>Periksa koneksi atau file data.json.</p>";
+      }
+    }
 
-                // contoh tampilan jika kamu ingin menampilkan salah satu data ke halaman
-                const konten = document.getElementById("konten");
-                konten.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
-            } catch (error) {
-                console.error("Gagal memuat data JSON:", error);
-            }
-        }
-
-        muatData();
-    </script>
+    mulaiWebsite();
+  </script>
 </body>
 </html>
