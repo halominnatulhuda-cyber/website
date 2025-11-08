@@ -2,9 +2,15 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beranda - Minnatul Huda</title>
+
+  <!-- Linked to RAW assets in the repository (sync) -->
+  <link rel="stylesheet" href="https://raw.githubusercontent.com/halominnatulhuda-cyber/website/refs/heads/main/styles.css">
+  <!-- If script.js handles fetch of data.json, it will run after loading below. -->
+</head>
 <body>
-  <!-- Skip to Content Link (Accessibility) -->
+<!-- Skip to Content Link (Accessibility) -->
   <a href="#main-content" class="skip-to-content">Langsung ke konten utama</a>
 
   <!-- Mobile Overlay -->
@@ -503,4 +509,23 @@
       <p>&copy; 2025 Pesantren & Sekolah Minnatul Huda. All rights reserved.</p>
     </div>
 
+  <!-- Inline check: fetch data.json (non-destructive, logs result) -->
+  <script>
+    fetch("https://raw.githubusercontent.com/halominnatulhuda-cyber/website/refs/heads/main/data.json")
+      .then(res => {
+        if (!res.ok) throw new Error('Gagal memuat data.json: ' + res.status);
+        return res.json();
+      })
+      .then(data => {
+        console.log("Data JSON berhasil dimuat (inline check):", data);
+        // If you want, select elements and inject data here. Currently non-destructive.
+      })
+      .catch(err => {
+        console.warn(err);
+      });
+  </script>
+
+  <!-- Main scripted behaviour (external) -->
+  <script src="https://raw.githubusercontent.com/halominnatulhuda-cyber/website/refs/heads/main/script.js"></script>
 </body>
+</html>
