@@ -19,19 +19,19 @@
       // Gambar banner - UBAH URL DI SINI untuk mengganti gambar slider
       images: [
         {
-          src: 'https://placehold.co/1200x500/0B6E4F/FFFFFF?text=Pesantren+Minnatul+Huda',
+          src: 'https://images.pexels.com/photos/1537086/pexels-photo-1537086.jpeg?_gl=1*eqz55w*_ga*MzQ3NTcyOTc2LjE3NjI2MjMzMzk.*_ga_8JE65Q40S6*czE3NjI2MjMzMzgkbzEkZzEkdDE3NjI2MjM0MjUkajMzJGwwJGgw',
           alt: 'Banner 1 - Pesantren Minnatul Huda',
           title: 'Selamat Datang di Minnatul Huda',
           description: 'Pendidikan Islami Berkualitas dengan Akhlak Mulia'
         },
         {
-          src: 'https://placehold.co/1200x500/14A76C/FFFFFF?text=Pendidikan+Berkualitas',
+          src: 'https://images.pexels.com/photos/8164742/pexels-photo-8164742.jpeg?_gl=1*1qgqr66*_ga*MzQ3NTcyOTc2LjE3NjI2MjMzMzk.*_ga_8JE65Q40S6*czE3NjI2MjMzMzgkbzEkZzEkdDE3NjI2MjM1ODckajI1JGwwJGgw',
           alt: 'Banner 2 - Pendidikan Berkualitas',
           title: 'Pendidikan Berkualitas',
           description: 'Memadukan Kurikulum Pesantren dan Formal'
         },
         {
-          src: 'https://placehold.co/1200x500/053826/FFFFFF?text=Fasilitas+Modern',
+          src: 'https://images.pexels.com/photos/683833/pexels-photo-683833.jpeg?_gl=1*yjkhrl*_ga*MzQ3NTcyOTc2LjE3NjI2MjMzMzk.*_ga_8JE65Q40S6*czE3NjI2MjMzMzgkbzEkZzEkdDE3NjI2MjM2MzkkajM4JGwwJGgw',
           alt: 'Banner 3 - Fasilitas Modern',
           title: 'Fasilitas Modern',
           description: 'Lingkungan Belajar yang Nyaman dan Kondusif'
@@ -588,3 +588,4 @@
 
     console.log('✅ Website Minnatul Huda initialized successfully');
   }
+
